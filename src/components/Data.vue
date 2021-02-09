@@ -1,13 +1,13 @@
 <template>
-  <!-- <v-data-table
-    :headers="headers"
-    :items="desserts"
-    :items-per-page="5"
-    class="elevation-1"
-  ></v-data-table> -->
   <div>
-    <button id="get-btn">aaa</button>
-    <div>{{ info }}</div>
+    <button id="get-btn" @click="getData()">GET</button>
+    <v-data-table
+      :headers="headers"
+      :items="data"
+      :items-per-page="20"
+      class="elevation-1"
+    ></v-data-table>
+    <div>{{ data }}</div>
   </div>
 </template>
 
@@ -21,25 +21,34 @@ export default {
   },
   data() {
     return {
-      info: null,
+      // info: null,
+      headers: [
+        {
+          value: 'id',
+          text: 'ID',
+        },
+        {
+          value: 'name',
+          text: 'Name',
+        },
+      ],
+      data: []
     }
   },
   computed: {
   },
   methods: {
     getData() {
-      // this.axios.get('https://httpbin.org/get')
-      //   .then((response) => {
-      //     alert(response.data.origin);
-      //   })
-      //   .catch((e) => {
-      //     alert(e);
-      //   });
+      this.axios.get('competitions/2021/teams')
+        .then((response) => {
+          this.data = response.data.teams
+        })
+        .catch((e) => {
+          alert(e);
+        });
     }
   },
   mounted() {
-    // this.axios.get('competitions/BL1/standings')
-    //   .then(response => (this.info = response))
   },
 }
 </script>
