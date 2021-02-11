@@ -1,13 +1,15 @@
 <template>
-  <dir>Home</dir>
+  <TableComponent />
 </template>
 
 <script>
+import TableComponent from '../components/TableComponent'
 
 
 export default {
-  name: 'Home',
+  name: 'Table',
   components: {
+    TableComponent
   },
   props: {
   },

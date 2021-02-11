@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <Tabs />
     <v-main>
       <router-view />
     </v-main>
@@ -7,10 +8,12 @@
 </template>
 
 <script>
+import Tabs from './components/Tabs'
 
 export default {
   name: 'App',
   components: {
+    Tabs
   },
   props: {
   },

@@ -14,14 +14,13 @@
 <script>
 
 export default {
-  name: 'Data',
+  name: 'TableComponent',
   components: {
   },
   props: {
   },
   data() {
     return {
-      // info: null,
       headers: [
         {
           value: 'id',
