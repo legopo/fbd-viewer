@@ -1,13 +1,15 @@
 <template>
   <div>
-    <button id="get-btn" @click="getData()">GET</button>
     <v-data-table
       :headers="headers"
-      :items="data"
+      :items="tableData"
       :items-per-page="20"
       class="elevation-1"
-    ></v-data-table>
-    <div>{{ data }}</div>
+    >
+      <template v-slot:[`item.team.crestUrl`]="{ item }">
+        <v-img :src="item.team.crestUrl" :alt="item.team.name" width="22px" height="22px"></v-img>
+      </template>
+    </v-data-table>
   </div>
 </template>
 
@@ -18,18 +20,59 @@ export default {
   components: {
   },
   props: {
+    tableData: Array
   },
   data() {
     return {
       headers: [
         {
-          value: 'id',
-          text: 'ID',
+          value: 'position',
+          text: 'Position',
         },
         {
-          value: 'name',
-          text: 'Name',
+          value: 'team.crestUrl',
+          text: '',
         },
+        {
+          value: 'team.name',
+          text: 'Team',
+        },
+        {
+          value: 'playedGames',
+          text: 'Played',
+        },
+        {
+          value: 'won',
+          text: 'Won',
+        },
+        {
+          value: 'draw',
+          text: 'Drawn',
+        },
+        {
+          value: 'lost',
+          text: 'Lost',
+        },
+        {
+          value: 'goalsFor',
+          text: 'GF',
+        },
+        {
+          value: 'goalsAgainst',
+          text: 'GA',
+        },
+        {
+          value: 'goalDifference',
+          text: 'GD',
+        },
+        {
+          value: 'points',
+          text: 'Points',
+        },
+        // {
+        //   value: 'form',
+        //   text: 'Form',
+        // },
       ],
       data: []
     }
@@ -37,15 +80,6 @@ export default {
   computed: {
   },
   methods: {
-    getData() {
-      this.axios.get('competitions/2021/teams')
-        .then((response) => {
-          this.data = response.data.teams
-        })
-        .catch((e) => {
-          alert(e);
-        });
-    }
   },
   mounted() {
   },
