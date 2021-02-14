@@ -26,3 +26,11 @@ export default {
   },
 };
 </script>
+
+<style>
+  #app {
+    font-family: 'Heebo', 'Noto Sans JP', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+</style>
