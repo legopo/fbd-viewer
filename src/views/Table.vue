@@ -102,7 +102,7 @@ export default {
             }
 
             // フォーム情報をオブジェクト化して配列に入れる
-            const forms = data.form.split(',')
+            const forms = data.form.split(',').reverse()
             datas[i].form = []
 
             forms.forEach(form => {
