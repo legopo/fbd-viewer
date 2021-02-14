@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Table from '../views/Table.vue'
+import Tables from '../views/Tables.vue'
+import Rankings from '../views/Rankings.vue'
 
 Vue.use(VueRouter)
 
@@ -12,9 +13,14 @@ const routes = [
     component: Home
   },
   {
-    path: '/table',
-    name: 'Table',
-    component: Table
+    path: '/tables',
+    name: 'Tables',
+    component: Tables
+  },
+  {
+    path: '/rankings',
+    name: 'Rankings',
+    component: Rankings
   },
 ]
 

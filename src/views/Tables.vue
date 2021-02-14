@@ -57,7 +57,7 @@ import TableComponent from '../components/TableComponent'
 
 
 export default {
-  name: 'Table',
+  name: 'Tables',
   components: {
     TableComponent,
   },
@@ -88,7 +88,7 @@ export default {
 
       this.loading = true
 
-      this.axios.get(`competitions/${this.selected.id}/standings`)
+      this.axios.get(`http://api.football-data.org/v2/competitions/${this.selected.id}/standings`)
         .then((response) => {
           // 現在表示中のリーグ
           this.currentLeagueId = response.data.competition.id
