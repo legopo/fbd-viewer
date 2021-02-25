@@ -19,7 +19,9 @@ export default {
   methods: {
   },
   mounted: function(){
-      this.axios.get(`http://api.clubelo.com/Fixtures`)
+      this.axios.get(`http://api.clubelo.com/Fixtures`, {
+        withCredentials: true
+      })
         .then((res) => {
           console.log(res);
         })
